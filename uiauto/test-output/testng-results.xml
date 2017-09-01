@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="23547" started-at="2017-08-31T08:22:12Z" finished-at="2017-08-31T08:22:35Z">
+  <suite name="Default suite" duration-ms="15516" started-at="2017-09-01T02:16:52Z" finished-at="2017-09-01T02:17:08Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="23547" started-at="2017-08-31T08:22:12Z" finished-at="2017-08-31T08:22:35Z">
+    <test name="Default test" duration-ms="15516" started-at="2017-09-01T02:16:52Z" finished-at="2017-09-01T02:17:08Z">
       <class name="test.NewTest">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:test.NewTest@23ceabc1]" name="beforeClass" is-config="true" duration-ms="23530" started-at="2017-08-31T16:22:12Z" finished-at="2017-08-31T16:22:35Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:test.NewTest@23ceabc1]" name="beforeClass" is-config="true" duration-ms="15502" started-at="2017-09-01T10:16:52Z" finished-at="2017-09-01T10:17:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="f()[pri:0, instance:test.NewTest@23ceabc1]" name="f" duration-ms="5" started-at="2017-08-31T16:22:35Z" finished-at="2017-08-31T16:22:35Z">
+        <test-method status="PASS" signature="f()[pri:0, instance:test.NewTest@23ceabc1]" name="f" duration-ms="3" started-at="2017-09-01T10:17:08Z" finished-at="2017-09-01T10:17:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:test.NewTest@23ceabc1]" name="afterClass" is-config="true" duration-ms="0" started-at="2017-08-31T16:22:35Z" finished-at="2017-08-31T16:22:35Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:test.NewTest@23ceabc1]" name="afterClass" is-config="true" duration-ms="0" started-at="2017-09-01T10:17:08Z" finished-at="2017-09-01T10:17:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- test.NewTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

@@ -1,19 +1,14 @@
 package test;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.internal.ThreeStateBoolean;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 
-public class test {
+public class Login {
 
 	public static void main(String[] args) throws InterruptedException {
 		AndroidDriver driver = null;
@@ -44,20 +39,26 @@ public class test {
 		try {
 			System.out.print("here");
 			driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-			Thread.sleep(30000);
+			Thread.sleep(10000);
 
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		WebElement name = driver.findElementById("com.geometry:id/tips_btn");
-//		WebElement name = driver.findElementByAndroidUIAutomator("com.geometry:id/tips_btn");
-//		WebElement name = driver.findElement(By.id("com.geometry:id/tips_btn"));
-//		WebElement name = driver.findElement(By.name("选择小区"));
-//		WebElement name = driver.findElementByXPath("//android.widget.Button[@text='选择小区']");
+		WebElement name = driver.findElementById("com.geometry:id/account_tab");
 		name.click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
+		driver.findElementById("com.geometry:id/tv_login").click();
+		Thread.sleep(5000);
+		driver.findElementById("com.geometry:id/phoneEdit").sendKeys("13714672776");
+		driver.findElementById("com.geometry:id/verifyCodeEdit").sendKeys("1234");
+		driver.findElementById("com.geometry:id/loginBtn").click();
+		Thread.sleep(1000);
+		driver.findElementById("com.geometry:id/iv_user_icon").click();
+		Thread.sleep(1000);
+		driver.findElementById("com.geometry:id/logout").click();
+		Thread.sleep(1000);
+		driver.findElementById("android:id/button1").click();
 		driver.closeApp();
 	}
-
 }
