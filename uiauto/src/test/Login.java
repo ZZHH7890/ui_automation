@@ -3,6 +3,7 @@ package test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -11,6 +12,7 @@ import io.appium.java_client.android.AndroidDriver;
 public class Login {
 
 	public static void main(String[] args) throws InterruptedException {
+		DOMConfigurator.configure("log4j.xml");
 		AndroidDriver driver = null;
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("platformName", "Android");
@@ -50,15 +52,18 @@ public class Login {
 		Thread.sleep(5000);
 		driver.findElementById("com.geometry:id/tv_login").click();
 		Thread.sleep(5000);
+		System.out.println(driver.getPageSource());
+//		driver.findElementByXPath("//android.widget.EditText[@text='«ÎÃÓ–¥ ÷ª˙∫≈¬Î']").sendKeys("13714672776");
+//		driver.findElementByXPath("//android.widget.EditText[@text='«ÎÃÓ–¥—È÷§¬Î']").sendKeys("1234");
 		driver.findElementById("com.geometry:id/phoneEdit").sendKeys("13714672776");
 		driver.findElementById("com.geometry:id/verifyCodeEdit").sendKeys("1234");
 		driver.findElementById("com.geometry:id/loginBtn").click();
 		Thread.sleep(1000);
-		driver.findElementById("com.geometry:id/iv_user_icon").click();
-		Thread.sleep(1000);
-		driver.findElementById("com.geometry:id/logout").click();
-		Thread.sleep(1000);
-		driver.findElementById("android:id/button1").click();
-		driver.closeApp();
+//		driver.findElementById("com.geometry:id/iv_user_icon").click();
+//		Thread.sleep(1000);
+//		driver.findElementById("com.geometry:id/logout").click();
+//		Thread.sleep(1000);
+//		driver.findElementById("android:id/button1").click();
+//		driver.closeApp();
 	}
 }
