@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.zzkg.common.Log;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -34,6 +36,7 @@ public class ChooseBuildingPage {
 			}
 			break;
 		}
+		Log.info("Ñ¡ÔñÂ¥¶°µ¥Ôª£º" + building);
 		this.confirm.click();
 	}
 

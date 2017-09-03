@@ -16,6 +16,9 @@ public class LoginPage {
 	// 验证码
 	@FindBy(id = "com.geometry:id/verifyCodeEdit")
 	public WebElement code;
+	// 推荐码
+	@FindBy(id = "com.geometry:id/recommand")
+	public WebElement introducerCode;
 	// 登录按钮
 	@FindBy(id = "com.geometry:id/loginBtn")
 	public WebElement loginBut;
@@ -26,10 +29,11 @@ public class LoginPage {
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), this);
 	}
-	
-	public void login() {
-		this.phone.sendKeys("13714672776");
-		this.code.sendKeys("1234");
+
+	public void login(String phone, String code, String introducerCode) {
+		this.phone.sendKeys(phone);
+		this.code.sendKeys(code);
+		this.introducerCode.sendKeys(introducerCode);
 		this.loginBut.click();
 	}
 

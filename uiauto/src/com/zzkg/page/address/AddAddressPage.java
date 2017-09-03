@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.zzkg.common.Log;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -53,7 +55,9 @@ public class AddAddressPage {
 
 	// 增加地址
 	public void addAddress(String contact, String gender, String phone, String room) {
+		Log.startTestCase("正在填写收货地址信息");
 		this.contactInputBox.sendKeys(contact);
+		Log.info("输入收货人姓名：" + contact);
 		switch (gender) {
 		case "man":
 			this.man.click();
@@ -62,9 +66,13 @@ public class AddAddressPage {
 			this.woman.click();
 			break;
 		}
+		Log.info("选择收货人性别：" + gender);
 		this.phoneInputBox.sendKeys(phone);
+		Log.info("输入收货人联系电话：" + phone);
 		this.roomInputBox.sendKeys(room);
+		Log.info("输入收货人门牌号：" + room);
 		this.save.click();
+		Log.endTestCase("填写收货地址信息结束");
 	}
 
 	// 获取页面源码

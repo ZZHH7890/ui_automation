@@ -24,9 +24,11 @@ import org.testng.annotations.AfterMethod;
 public class AddAddress {
 	AndroidDriver driver = null;
 
+	// 测试新增地址
 	@Test(enabled = true, dataProvider = "address", dataProviderClass = AddAddressPro.class, priority = 1)
 	public void addAddress(String contact, String gender, String phone, String building, String room,
 			String expectValue) throws InterruptedException {
+		Log.info("addAddress用例开始");
 		HomePage homePage = new HomePage(driver);
 		MePage mePage = homePage.getMePage();
 		AddressListPage addressListPage = mePage.getAddressListPage();
@@ -34,6 +36,24 @@ public class AddAddress {
 		ChooseBuildingPage chooseBuildingPage = addAddressPage.getChooseBuildingPage();
 		chooseBuildingPage.getBuilding(building);
 		addAddressPage.addAddress(contact, gender, phone, room);
+		Log.info("addAddress用例结束");
+		//检查收货地址列表页面中是否有新加入的地址
+		Assert.assertTrue(addressListPage.getAddressListPageSource().contains(expectValue));
+	}
+
+	// 检验手机号码段
+	@Test(enabled = false, dataProvider = "phone", dataProviderClass = AddAddressPro.class, priority = 2)
+	public void checkAddressPhone(String contact, String phone, String expectValue) throws InterruptedException {
+		Log.info("checkAddressPhone用例开始");
+		HomePage homePage = new HomePage(driver);
+		MePage mePage = homePage.getMePage();
+		AddressListPage addressListPage = mePage.getAddressListPage();
+		AddAddressPage addAddressPage = addressListPage.getAddAddressPage();
+		ChooseBuildingPage chooseBuildingPage = addAddressPage.getChooseBuildingPage();
+		chooseBuildingPage.getBuilding("自动化测试楼栋C栋(勿删)");
+		addAddressPage.addAddress(contact, "man", phone, "111111Aa");
+		Log.info("checkAddressPhone用例结束");
+		//检查收货地址列表页面中是否有新加入的地址
 		Assert.assertTrue(addressListPage.getAddressListPageSource().contains(expectValue));
 	}
 
@@ -51,7 +71,6 @@ public class AddAddress {
 	public void beforeClass() {
 		DOMConfigurator.configure("log4j.xml");
 		Log.startTestCase("AddAddress用例测试开始");
-
 	}
 
 	@AfterClass

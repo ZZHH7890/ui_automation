@@ -24,7 +24,7 @@ public class NewTest {
 		HomePage homePage = new HomePage(driver);
 		MePage mePage = homePage.getMePage();
 		LoginPage loginPage = mePage.getLoginPage();
-		loginPage.login();
+//		loginPage.login();
 //		Thread.sleep(5000);
 //		AddressListPage addressListPage = mePage.getAddressListPage();
 //		AddAddressPage addAddressPage = addressListPage.getAddAddressPage();
